@@ -43,7 +43,7 @@ FASTAPI/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>.git
+git clone https://github.com/VishnuSaiU/fastapi-demo.git
 cd FASTAPI
 ```
 
@@ -124,3 +124,8 @@ The core FastAPI application. Includes:
 
 ---
 
+## 📝 Notes
+
+- The SQLite database file (`database.db` or similar) is auto-created when the backend starts for the first time.
+- The frontend is a standard Create React App project — no modifications were made to it.
+- This project is based on the [navinreddy20/fastapi-demo](https://github.com/navinreddy20/fastapi-demo) reference (products-with-ui branch).
