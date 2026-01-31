@@ -1,6 +1,6 @@
 # FastAPI Product Inventory Manager
 
-A full-stack product inventory management system built with **FastAPI** (Python backend) and a **React** frontend. Supports full CRUD operations — create, read, update, and delete products — with data persisted in a **SQLite** database via SQLAlchemy.
+A full-stack product inventory management system built with **FastAPI** (Python backend) and a **React** frontend. Supports full CRUD operations — create, read, update, and delete products — with data persisted in a **PostgreSQL** database via SQLAlchemy.
 
 ---
 
@@ -31,7 +31,7 @@ FASTAPI/
 |------------|-----------------------------------|
 | Backend    | Python 3, FastAPI, Uvicorn        |
 | ORM        | SQLAlchemy                        |
-| Database   | SQLite                            |
+| Database   | PostgreSQL                        |
 | Validation | Pydantic                          |
 | Frontend   | React, Axios                      |
 | CORS       | FastAPI CORSMiddleware            |
@@ -43,7 +43,7 @@ FASTAPI/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/VishnuSaiU/fastapi-demo.git
+git clone <your-repo-url>.git
 cd FASTAPI
 ```
 
@@ -62,7 +62,7 @@ source fastapi/bin/activate
 ### 3. Install dependencies
 
 ```bash
-pip install fastapi uvicorn sqlalchemy
+pip install fastapi uvicorn sqlalchemy psycopg2-binary
 ```
 
 > If you use Axios on the backend side for any proxy or utility, install it via npm in the frontend folder (see Frontend Setup).
@@ -108,10 +108,10 @@ The React app will start at **http://localhost:3000** and communicates with the 
 ## 🗂️ Key Files Explained
 
 ### `database.py`
-Configures the SQLite database engine and creates a session factory (`SessionLocal`) using SQLAlchemy. Also exports the `Base` declarative base for all ORM models.
+Configures the PostgreSQL database engine and creates a session factory (`SessionLocal`) using SQLAlchemy. The database URL is typically stored in a `.env` file. Also exports the `Base` declarative base for all ORM models.
 
 ### `database_models.py`
-Defines the SQLAlchemy ORM model (`Product`) that maps directly to the `products` table in SQLite. Columns typically include `id`, `name`, `description`, `price`, and `quantity`.
+Defines the SQLAlchemy ORM model (`Product`) that maps directly to the `products` table in PostgreSQL. Columns typically include `id`, `name`, `description`, `price`, and `quantity`.
 
 ### `models.py`
 Pydantic schemas used by FastAPI for **request validation** and **response serialization**. Keeps the API contract clean and separate from the database layer.
@@ -126,6 +126,6 @@ The core FastAPI application. Includes:
 
 ## 📝 Notes
 
-- The SQLite database file (`database.db` or similar) is auto-created when the backend starts for the first time.
+- Make sure your PostgreSQL server is running and the credentials in your `.env` file (or `database.py`) are correct before starting the backend.
 - The frontend is a standard Create React App project — no modifications were made to it.
 - This project is based on the [navinreddy20/fastapi-demo](https://github.com/navinreddy20/fastapi-demo) reference (products-with-ui branch).
