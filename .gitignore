@@ -1,0 +1,17 @@
+# Virtual environment
+fastapi/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database
+*.db
+
+# Frontend
+frontend/node_modules/
+
+# Environment
+.env
